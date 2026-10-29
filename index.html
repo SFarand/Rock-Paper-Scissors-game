@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#76b8e8">
+  <title>Flow — Rock Paper Scissors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-bubble bubble-one"></div><div class="ambient-bubble bubble-two"></div><div class="ambient-bubble bubble-three"></div>
+  <main class="app-shell">
+    <header class="navbar glass">
+      <a class="brand" href="#home" aria-label="Flow home"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>Flow <b>Play</b></span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a class="active" href="#home">⌂ <span>Home</span></a><a href="#history">▤ <span>History</span></a><a href="#settings">⚙ <span>Settings</span></a></nav>
+    </header>
+
+    <section class="hero-grid" id="home">
+      <div class="hero-copy glass-hero">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> A little game, a little magic</div>
+        <h1>Rock<br>Paper<br><em>Scissors.</em></h1>
+        <p>Choose your move, beat your opponent,<br class="desktop-only"> and see who will win!</p>
+        <div class="hero-foot"><span class="avatar-stack"><i>🪨</i><i>📄</i><i>✂️</i></span><span>Ready when you are.<small>Best of luck!</small></span></div>
+      </div>
+      <aside class="score-card glass" aria-label="Scoreboard">
+        <div class="score-side"><span>You</span><strong id="playerScore">0</strong></div><div class="score-divider"></div><div class="score-side"><span>Computer</span><strong id="computerScore">0</strong></div>
+        <div class="draw-chip">Draws <b id="drawScore">0</b></div>
+      </aside>
+    </section>
+
+    <section class="play-layout">
+      <div class="play-column">
+        <div class="round-status"><span class="pulse-dot"></span><span id="roundInfo">ROUND 1 · BEST OF 5</span></div>
+        <section class="arena glass" aria-label="Round result">
+          <div class="hand-box"><div class="hand-orb"><div class="character" id="playerHand" aria-label="Your move">✊</div></div><span class="hand-label">You</span><small class="hand-caption" id="playerCaption">Your move</small></div>
+          <div class="versus">VS</div>
+          <div class="hand-box"><div class="hand-orb"><div class="character flip" id="computerHand" aria-label="Computer move">✊</div></div><span class="hand-label">Computer</span><small class="hand-caption" id="computerCaption">Waiting...</small></div>
+        </section>
+        <p class="message" id="message" aria-live="polite">Pick your character to begin</p>
+        <div class="choices" aria-label="Choose your move">
+          <button class="choice" data-choice="rock"><span class="choice-orb"><span class="icon">🪨</span></span><span class="choice-name">Rock</span><span class="choice-sub">R</span></button>
+          <button class="choice" data-choice="paper"><span class="choice-orb"><span class="icon">📄</span></span><span class="choice-name">Paper</span><span class="choice-sub">P</span></button>
+          <button class="choice" data-choice="scissors"><span class="choice-orb"><span class="icon">✂️</span></span><span class="choice-name">Scissors</span><span class="choice-sub">S</span></button>
+        </div>
+        <div class="bottom-actions"><button class="action-btn" id="newMatchBtn"><span class="action-icon">⟳</span><span>New Game</span></button><span class="action-separator"></span><a class="action-btn history-jump" href="#history"><span class="action-icon">▤</span><span>Game History</span><span class="arrow">›</span></a></div>
+      </div>
+
+      <aside class="history-card glass" id="history">
+        <div class="section-heading"><div><span class="mini-label">YOUR JOURNEY</span><h2>Game History</h2></div><span class="history-icon">◷</span></div>
+        <ol id="historyList"><li class="empty-history">Your rounds will appear here.</li></ol>
+        <div class="history-footer"><span>All-time draws</span><strong id="drawsSummary">0</strong></div>
+        <div class="settings-panel" id="settings"><div class="settings-title">Game settings</div>
+          <label>Match length<select id="bestOf"><option value="3">Best of 3</option><option value="5" selected>Best of 5</option><option value="7">Best of 7</option></select></label>
+          <label>Opponent style<select id="mode"><option value="random">Random</option><option value="smart">Smart opponent</option></select></label>
+        </div>
+      </aside>
+    </section>
+    <footer class="footer-note"><span>✧</span> Made for curious minds <span>✧</span><small id="stats"></small></footer>
+  </main>
+  <script src="script.js" defer></script>
+</body></html>
